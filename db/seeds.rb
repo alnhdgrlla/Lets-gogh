@@ -6,14 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Destroying existing users..."
-User.destroy_all if Rails.env.development?
+
+puts "Destroying all bookings..."
+Booking.destroy_all if Rails.env.development?
 
 puts "Destroying existing supplies..."
 Supply.destroy_all if Rails.env.development?
 
-puts "Destroying all bookings..."
-Booking.destroy_all if Rails.env.development?
+puts "Destroying existing users..."
+User.destroy_all if Rails.env.development?
 
 puts "Creating test supplier..."
 

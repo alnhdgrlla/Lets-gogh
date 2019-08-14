@@ -1,5 +1,5 @@
 class SuppliesController < ApplicationController
-  before_action :set_supply, only: [:show, :edit, :update]
+  before_action :set_supply, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -39,6 +39,12 @@ class SuppliesController < ApplicationController
     end
   end
 
+  def destroy
+    authorize_supply
+    @supply.destroy
+    redirect_to root_path
+  end
+
   private
 
   def set_supply
@@ -46,16 +52,10 @@ class SuppliesController < ApplicationController
   end
 
   def supply_params
-    params.require(:supply).permit(:title, :price, :category, :description, :user_id)
+    params.require(:supply).permit(:title, :price, :category, :description, :user_id, :photo)
   end
 
   def authorize_supply
     authorize @supply
   end
 end
-
-
-
-
-
-
