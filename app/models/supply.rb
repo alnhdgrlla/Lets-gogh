@@ -5,4 +5,5 @@ class Supply < ApplicationRecord
   validates :title, presence: true
   validates :price, presence: true
   validates :category, presence: true
+  mount_uploader :photo, PhotoUploader
 end
