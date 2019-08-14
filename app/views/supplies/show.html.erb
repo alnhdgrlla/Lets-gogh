@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="supply-container">
   <div id="card-show">
     <div class="card-how-info">
@@ -12,6 +13,39 @@
           <%= @supply.description %>
         </div>
       </p>
+=======
+
+  <div class="supply-container">
+
+          <div id="card-show">
+            <div class="card-how-info">
+              <div class="name">
+                <h1><%= @supply.title %></h1>
+              </div>
+                <p>
+                  <div class="Supply">
+                  <%= @supply.title  %> <br>
+                  <%= @supply.price %> <br>
+                  <%= @supply.category %> <br>
+                  <%= @supply.description %>
+                  </div>
+                </p>
+            </div>
+          </div>
+
+            <div id="reserve-sticky">
+              <p>hi im sticky</p>
+            </div>
+
+          <div class="return">
+            <%= link_to "back to supplies", root_path %>
+          </div>
+          <div class>
+            <% if policy(@supply).edit? %>
+              <%= link_to "edit", edit_supply_path(@supply)  %>
+            <% end %>
+          </div>
+>>>>>>> 64115164517e4c3f699f523d398591af82d712fc
     </div>
     <div class="return">
       <%= link_to "back to supplies", root_path %>
