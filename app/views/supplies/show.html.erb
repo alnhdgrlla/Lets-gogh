@@ -2,18 +2,28 @@
   <div class="container">
       <div class="row">
         <div class="col">
-          <h1>WOWOOWOOWOWOOW</h1>
-          <p>Find me in app/views/supplies/show.html.erb</p>
 
+          <div class="card-show">
+            <div class="card-how-info">
+              <div class="name">
+                <h1><%= @supply.title %></h1>
+              </div>
+                <p>
+                  <div class="Supply">
+                  <%= @supply.title  %> <br>
+                  <%= @supply.price %> <br>
+                  <%= @supply.category %> <br>
+                  <%= @supply.description %>
+                  </div>
+                </p>
+            </div>
 
-
-
-
-
+            <div class="return">
+              <%= link_to "back to supplies", supplies_path %>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
 
-  <div class="return">
-    <%= link_to "back to supplies", supplies_path %>
-  </div>
+
+
