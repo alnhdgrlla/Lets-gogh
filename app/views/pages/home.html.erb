@@ -6,8 +6,13 @@
 </div>
 
 <h3>All the supplies</h3>
-<% @supplies.each do |s| %>
-<p><%= s.title %> </p>
-<p><%= s.price %> </p>
-<p><%= s.category %> </p>
-<% end %>
+
+<div class="grid-container">
+  <% @supplies.each do |s| %>
+  <div class="grid-item">
+    <p><%= link_to s.title, supply_path(s) %> </p>
+    <p><%= s.price %> </p>
+    <p><%= s.category %> </p>
+  </div>
+  <% end %>
+</div>
