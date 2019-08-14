@@ -18,6 +18,7 @@ class SuppliesController < ApplicationController
   def create
     @supply = Supply.new(supply_params)
     authorize_supply
+    @supply.user = current_user
     if @supply.save
       redirect_to supply_path(@supply)
     else

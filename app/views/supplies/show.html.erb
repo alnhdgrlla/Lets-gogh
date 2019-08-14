@@ -1,9 +1,7 @@
 
-  <div class="container">
-      <div class="row">
-        <div class="col">
+  <div class="supply-container">
 
-          <div class="card-show">
+          <div id="card-show">
             <div class="card-how-info">
               <div class="name">
                 <h1><%= @supply.title %></h1>
@@ -17,12 +15,18 @@
                   </div>
                 </p>
             </div>
-
-            <div class="return">
-              <%= link_to "back to supplies", root_path %>
-            </div>
           </div>
-        </div>
+
+            <div id="reserve-sticky">
+              <p>hi im sticky</p>
+            </div>
+
+          <div class="return">
+            <%= link_to "back to supplies", root_path %>
+          </div>
+          <div class>
+            <%= link_to "edit", edit_supply_path(@supply)  %>
+          </div>
     </div>
 
 
