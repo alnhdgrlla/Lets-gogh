@@ -4,3 +4,10 @@
     <p>Rent your supply, change the world</p>
   </div>
 </div>
+
+<h3>All the supplies</h3>
+<% @supplies.each do |s| %>
+<p><%= s.title %> </p>
+<p><%= s.price %> </p>
+<p><%= s.category %> </p>
+<% end %>
