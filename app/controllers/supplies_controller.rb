@@ -32,7 +32,7 @@ class SuppliesController < ApplicationController
   def update
     authorize_supply
     if @supply.update(supply_params)
-      redirect_to flat_path(@supply)
+      redirect_to supply_path(@supply)
     else
       render :edit
     end
