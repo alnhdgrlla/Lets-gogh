@@ -1,13 +1,21 @@
-<h1>Pages#home</h1>
-
-
-
-<div class="container">
-  <div class="col">
-    <div class="row">
-
-
-    </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/194098/pexels-photo-194098.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);">
+  <div class="container">
+    <h1>Let's gogh <strong>is a platform</strong> where<strong> users rent out their art supplies</strong>!</h1>
+    <p>Rent your supply, change the world</p>
   </div>
+</div>
+
+
+<h3>All the supplies</h3>
+
+
+<div class="grid-container">
+  <% @supplies.each do |s| %>
+  <div class="grid-item">
+    <p><%= link_to s.title, supply_path(s) %> </p>
+    <p><%= s.price %> </p>
+    <p><%= s.category %> </p>
+  </div>
+  <% end %>
 </div>
 
