@@ -4,18 +4,16 @@
     <p>Rent your supply, change the world</p>
   </div>
 </div>
-
-
 <h3>All the supplies</h3>
-
-
+<% if user_signed_in %>
+  <%= link_to "New Supply", new_supply_path %>
+<% end %>
 <div class="grid-container">
   <% @supplies.each do |s| %>
-  <div class="grid-item">
-    <p><%= link_to s.title, supply_path(s) %> </p>
-    <p><%= s.price %> </p>
-    <p><%= s.category %> </p>
-  </div>
+    <div class="grid-item">
+      <p><%= link_to s.title, supply_path(s) %> </p>
+      <p><%= s.price %> </p>
+      <p><%= s.category %> </p>
+    </div>
   <% end %>
 </div>
-
