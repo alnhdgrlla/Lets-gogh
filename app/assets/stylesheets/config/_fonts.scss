@@ -1,9 +1,10 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-
+@import url('https://fonts.googleapis.com/css?family=Lobster|Noto+Sans+KR|Quicksand&display=swap');
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
+$headers-font: 'Quicksand', 'sans-serif';
+$body-font: 'Noto Sans KR', 'sans-serif';
+$h1-font: 'Lobster', 'cursive';
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

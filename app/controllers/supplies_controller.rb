@@ -1,6 +1,6 @@
 class SuppliesController < ApplicationController
   before_action :set_supply, only: [:show, :edit, :update]
-  
+
   def index
     @supplies = Supply.all
   end
@@ -33,7 +33,7 @@ class SuppliesController < ApplicationController
   end
 
   private
-  
+
   def set_supply
     @supply = Supply.find(params[:id])
   end
