@@ -46,7 +46,7 @@ class SuppliesController < ApplicationController
   end
 
   def supply_params
-    params.require(:supply).permit(:title, :price, :category, :description, :user_id)
+    params.require(:supply).permit(:title, :price, :category, :description, :user_id, :photo)
   end
 
   def authorize_supply
