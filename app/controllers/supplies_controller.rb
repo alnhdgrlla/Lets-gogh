@@ -1,18 +1,22 @@
 class SuppliesController < ApplicationController
   before_action :set_supply, only: [:show, :edit, :update]
-  
+
   def index
+    authorize @supplies
     @supplies = Supply.all
   end
 
   def show
+    authorize_supply
   end
 
   def new
+    authorize_supply
     @supply = Supply.new
   end
 
   def create
+    authorize_supply
     @supply = Supply.new(supply_params)
     if @supply.save
       redirect_to supply_path(@supply)
@@ -22,9 +26,11 @@ class SuppliesController < ApplicationController
   end
 
   def edit
+    authorize_supply
   end
 
   def update
+    authorize_supply
     if @supply.update(supply_params)
       redirect_to flat_path(@supply)
     else
@@ -33,7 +39,7 @@ class SuppliesController < ApplicationController
   end
 
   private
-  
+
   def set_supply
     @supply = Supply.find(params[:id])
   end
@@ -41,4 +47,14 @@ class SuppliesController < ApplicationController
   def supply_params
     params.require(:supply).permit(:title, :price, :category, :description, :user_id)
   end
+
+  def authorize_supply
+    authorize @supply
+  end
 end
+
+
+
+
+
+
