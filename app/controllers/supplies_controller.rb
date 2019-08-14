@@ -53,9 +53,3 @@ class SuppliesController < ApplicationController
     authorize @supply
   end
 end
-
-
-
-
-
-

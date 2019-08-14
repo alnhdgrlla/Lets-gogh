@@ -1,33 +1,38 @@
-
-  <div class="supply-container">
-
-          <div id="card-show">
-            <div class="card-how-info">
-              <div class="name">
-                <h1><%= @supply.title %></h1>
-              </div>
-                <p>
-                  <div class="Supply">
-                  <%= @supply.title  %> <br>
-                  <%= @supply.price %> <br>
-                  <%= @supply.category %> <br>
-                  <%= @supply.description %>
-                  </div>
-                </p>
-            </div>
-          </div>
-
-            <div id="reserve-sticky">
-              <p>hi im sticky</p>
-            </div>
-
-          <div class="return">
-            <%= link_to "back to supplies", root_path %>
-          </div>
-          <div class>
-            <%= link_to "edit", edit_supply_path(@supply)  %>
-          </div>
+<div class="supply-container">
+  <div id="card-show">
+    <div class="card-how-info">
+      <div class="name">
+        <h1><%= @supply.title %></h1>
+      </div>
+      <p>
+        <div class="Supply">
+          <%= @supply.title  %> <br>
+          <%= @supply.price %> <br>
+          <%= @supply.category %> <br>
+          <%= @supply.description %>
+        </div>
+      </p>
     </div>
-
-
-
+    <div class="return">
+      <%= link_to "back to supplies", root_path %>
+      <br>
+      <%= link_to "edit", edit_supply_path(@supply)  %>
+    </div>
+  </div>
+  <div id="reserve-sticky">
+    <p>
+      <div class="sticky">
+        <h3> <%= @supply.price %> </h3>
+      </div>
+      <div class="row no-gutters">
+        <div class="calendar col-lg">
+          <%= simple_form_for @supply do |f| %>
+            <%= f.input :title %>
+            <%= f.input :description %>
+            <%= f.button :submit, :class => "btn btn-light" %>
+          <% end %>
+        </div>
+      </div>
+    </p>
+  </div>
+</div>
