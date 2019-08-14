@@ -11,13 +11,13 @@ class SuppliesController < ApplicationController
   end
 
   def new
-    authorize_supply
     @supply = Supply.new
+    authorize_supply
   end
 
   def create
-    authorize_supply
     @supply = Supply.new(supply_params)
+    authorize_supply
     if @supply.save
       redirect_to supply_path(@supply)
     else
