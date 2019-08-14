@@ -9,6 +9,51 @@
 puts "Destroying existing users..."
 User.destroy_all if Rails.env.development?
 
+puts "Destroying existing supplies..."
+Supply.destroy_all if Rails.env.development?
+
+puts "Destroying all bookings..."
+Booking.destroy_all if Rails.env.development?
+
+puts "Creating test supplier..."
+
+test_supplier = User.new(
+  email: "test@email.com",
+  password: "123123",
+  username: "wowowowow"
+)
+test_supplier.save!
+
+puts "Creating test artist..."
+
+test_artist = User.new(
+  email: "artist@email.com",
+  password: "123123",
+  username: "okokokok"
+)
+test_artist.save!
+
+puts "Creating test supply..."
+
+Supply.create!(
+  title: "My Beautiful Boi",
+  price: 10000.99,
+  category: "drawing tablet",
+  description: "uwa sugoi desu nee",
+  user: test_supplier
+)
+
+puts "Creating test booking..."
+
+Booking.create!(
+  start_date: Date.today,
+  end_date: Date.today + 3,
+  user: test_artist,
+  supply: Supply.first
+)
+
+puts "Test users ready to be used!"
+
 puts "Getting some dummy users..."
 
 10.times do
@@ -21,8 +66,7 @@ end
 
 puts "Goteem (#{User.count} times)"
 
-puts "Destroying existing supplies..."
-Supply.destroy_all if Rails.env.development?
+
 
 puts "Generating new supplies, please wait..."
 
@@ -40,8 +84,7 @@ end
 
 puts "#{Supply.count} supplies are ready!"
 
-puts "Destroying all bookings..."
-Booking.destroy_all if Rails.env.development?
+
 
 puts "Creating some new bookings..."
 
