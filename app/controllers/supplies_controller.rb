@@ -3,8 +3,7 @@ class SuppliesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    authorize @supplies
-    @supplies = Supply.all
+    @supplies = policy_scope(Supply)
   end
 
   def show
