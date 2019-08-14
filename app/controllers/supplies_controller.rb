@@ -1,7 +1,6 @@
 class SuppliesController < ApplicationController
-  before_action :set_supply, only: [:show, :edit, :update]
+  before_action :set_supply, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
-  mount_uploader :photo, PhotoUploader
 
   def index
     @supplies = policy_scope(Supply)
@@ -38,6 +37,12 @@ class SuppliesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    authorize_supply
+    @supply.destroy
+    redirect_to root_path
   end
 
   private
