@@ -2,8 +2,7 @@ class SuppliesController < ApplicationController
   before_action :set_supply, only: [:show, :edit, :update]
 
   def index
-    authorize @supplies
-    @supplies = Supply.all
+    @supplies = policy_scope(Supply)
   end
 
   def show
