@@ -5,7 +5,7 @@
   </div>
 </div>
 <h3>All the supplies</h3>
-<% if user_signed_in %>
+<% if user_signed_in? %>
   <%= link_to "New Supply", new_supply_path %>
 <% end %>
 <div class="grid-container">
