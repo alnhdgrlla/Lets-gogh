@@ -8,6 +8,7 @@ class SuppliesController < ApplicationController
 
   def show
     authorize_supply
+    @booking = Booking.new
   end
 
   def new
