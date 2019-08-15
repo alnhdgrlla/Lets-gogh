@@ -8,13 +8,13 @@
 
 
 puts "Destroying all bookings..."
-Booking.destroy_all if Rails.env.development?
+Booking.destroy_all
 
 puts "Destroying existing supplies..."
-Supply.destroy_all if Rails.env.development?
+Supply.destroy_all
 
 puts "Destroying existing users..."
-User.destroy_all if Rails.env.development?
+User.destroy_all
 
 puts "Creating test supplier..."
 
