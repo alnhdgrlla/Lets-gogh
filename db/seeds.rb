@@ -37,12 +37,30 @@ test_artist.save!
 puts "Creating test supply..."
 
 Supply.create!(
-  title: "My Beautiful Boi",
-  price: 10000.99,
+  title: "Wacom tablet 2016",
+  price: 30.99,
   category: "drawing tablet",
-  description: "uwa sugoi desu nee",
+  description: "Impact Hub, Meguro",
   user: test_supplier,
-  remote_photo_url: 'https://picsum.photos/id/102/70/70'
+  remote_photo_url: 'https://picsum.photos/70'
+)
+
+Supply.create!(
+  title: "STANLEY Soft Grip Polyester Brush",
+  price: 29.99,
+  category: "paintbrushes",
+  description: "McDonalds, Shibuya",
+  user: test_supplier,
+  remote_photo_url: 'https://cdn.shopify.com/s/files/1/1114/2810/products/waldorf-watercolor-paintbrush_1_1024x1024.png?v=1453489603'
+)
+
+Supply.create!(
+  title: "Old Holland Classic Oil Colours",
+  price: 40.99,
+  category: "paints",
+  description: "McDonalds, Shibuya",
+  user: test_supplier,
+  remote_photo_url: 'https://www.svgrepo.com/show/189152/paint-bucket-paint.svg'
 )
 
 puts "Creating test booking..."
@@ -80,7 +98,7 @@ User.all.each do |user|
       category: Supply::CATEGORY.sample,
       description: Faker::Hipster.paragraphs(number: 2).join(" "),
       user: user,
-      remote_photo_url: 'https://picsum.photos/id/102/70/70'
+      remote_photo_url: 'https://picsum.photos/70'
     )
   end
 end
