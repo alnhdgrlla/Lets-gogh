@@ -50,6 +50,12 @@
   margin-top: 8px;
 }
 
+.grid-item img {
+  height: 100%;
+  width: 100px;
+  object-fit: cover;
+}
+
 
 // body {
 //   position: relative;
