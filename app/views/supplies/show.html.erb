@@ -7,7 +7,8 @@
           <h1><%= @supply.title %></h1>
           <%= @supply.price %> <br>
           <%= @supply.category %> <br>
-          <%= @supply.description %>
+          <%= @supply.description %> <br>
+          <%= @supply.user.username %>
         </div>
       </p>
     </div>
@@ -19,13 +20,7 @@
           <h3> <%= @supply.price %> </h3>
         </div>
         <div class="row no-gutters">
-          <div class="calendar col-lg">
-            <%= simple_form_for @supply do |f| %>
-              <%= f.input :title %>
-              <%= f.input :description %>
-              <%= f.button :submit, 'Rent Supply!', :class => "btn btn-light"%>
-            <% end %>
-          </div>
+          <%= render "bookings/new", supply: @supply, user: current_user %>
         </div>
       </p>
     </div>

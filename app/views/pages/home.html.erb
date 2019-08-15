@@ -17,6 +17,7 @@
         <h4><%= link_to s.title, supply_path(s) %> </h4>
         <p><%= s.price %> </p>
         <p><%= s.category %> </p>
+        <p><%= s.user.username %> </p>
       </div>
     </div>
   <% end %>
