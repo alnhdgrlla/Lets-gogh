@@ -34,7 +34,7 @@
   width: 300px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: list-item;
+  display: flex;
   align-items: center;
   padding: 16px;
   margin: 15px;
@@ -52,8 +52,9 @@
 
 .grid-item img {
   height: 100%;
-  width: 100px;
+  width: 90px;
   object-fit: cover;
+  padding: 10px;
 }
 
 
