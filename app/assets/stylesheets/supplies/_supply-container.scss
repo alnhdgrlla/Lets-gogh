@@ -31,6 +31,33 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.supply {
+  display: flex;
+}
+
+.fixed-info {
+  color: $teal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  opacity: 0.8;
+  font-weight: lighter;
+  }
+
+.fixed-info a {
+  color: $teal;
+}
+
+#show-options li {
+  list-style-type: none;
 }
 
 #reserve-sticky {

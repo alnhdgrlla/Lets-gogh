@@ -11,7 +11,7 @@
   <% @supplies.each do |s| %>
     <div class="grid-item">
       <div class="grid-item-img">
-        <%= image_tag "gogh.png" %>
+        <%= cl_image_tag s.photo %>
       </div>
       <div class="grid-item-info">
         <h4><%= link_to s.title, supply_path(s) %> </h4>
