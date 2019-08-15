@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_supply, only: [:index, :show, :new, :create]
+  before_action :set_supply, only: [:show, :new, :create]
 
   def index
     @bookings = policy_scope(Booking)
