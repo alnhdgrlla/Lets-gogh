@@ -6,7 +6,7 @@
         <%= f.input :title, placeholder: "Please type brief info"%>
         <%= f.input :category, hint:"Please select from the list", collection: Supply::CATEGORY %>
         <%= f.input :price, placeholder: "Price per day" %>
-        <%= f.input :description, placeholder: "Quantity, Usage, Material, Waring, etc." %>
+        <%= f.input :description, placeholder: "Quantity, Usage, Material, Warning, etc." %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.button :submit, class: 'btn btn-primary' %>
