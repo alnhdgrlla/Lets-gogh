@@ -1,16 +1,36 @@
 <div class="supply-container">
   <div id="card-show">
     <div class="card-show-info">
-      <p>
-        <div class="Supply">
-          <%= image_tag "gogh.png" %>
-          <h1><%= @supply.title %></h1>
-          <%= @supply.price %> <br>
-          <%= @supply.category %> <br>
-          <%= @supply.description %> <br>
-          <%= @supply.user.username %>
+      <div class="Supply">
+        <%= cl_image_tag @supply.photo %>
+        <div class="fixed-info">
+          <ul id="show-options">
+            <li>
+              <div>
+                <% if policy(@supply).edit? %>
+                  <%= link_to edit_supply_path(@supply) do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </li>
+            <li>
+              <div>
+                <% if policy(@supply).destroy? %>
+                  <%= link_to supply_path(@supply), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="fa fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </li>
+          </ul>
         </div>
-      </p>
+        <h1><%= @supply.title %></h1>
+        <%= @supply.price %> <br>
+        <%= @supply.category %> <br>
+        <%= @supply.description %> <br>
+        <%= @supply.user.username %>
+      </div>
     </div>
   </div>
   <div id="reserve-sticky">
@@ -24,21 +44,6 @@
         </div>
       </p>
     </div>
-  </div>
-  <div class="return">
-    <%= link_to "back to supplies", root_path %>
-  </div>
-  <div class>
-    <% if policy(@supply).edit? %>
-      <%= link_to "edit", edit_supply_path(@supply)  %>
-    <% end %>
-  </div>
-  <div>
-    <% if policy(@supply).destroy? %>
-      <%= link_to supply_path(@supply), method: :delete, data: { confirm: "Are you sure?" } do %>
-        <i class="fa fa-trash destroy_dose"></i>
-      <% end %>
-    <% end %>
   </div>
 </div>
 </div>

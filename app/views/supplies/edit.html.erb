@@ -3,11 +3,11 @@
     <div class="col-md-8">
       <h1>Add a supply to rent out</h1>
       <%= simple_form_for @supply do |f| %>
-        <%= f.input :title, hint: "Please type brief info" %>
+        <%= f.input :title, hint: "Quantity, Usage, Material, Warning" %>
         <%= f.input :category, hint:"Please select from the list", collection: Supply::CATEGORY %>
-        <%= f.input :price, hint: "Price per day" %>
-        <%= f.input :description, hint: "Quantity, Usage, Material, Warning, etc."%>
-        <%= f.button :submit, class: 'btn btn-primary' %>
+        <%= f.input :price, placeholder: "Price per day" %>
+        <%= f.button :submit, class: 'btn btn-light' %>
+
       <% end %>
     </div>
   </div>
