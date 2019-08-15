@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :set_supply, only: [:show]
+  before_action :set_supply, only: [:index, :show, :new, :create]
 
   def index
     @bookings = policy_scope(Booking)
+    @bookings = @bookings.where(user: current_user)
   end
 
   def show
@@ -17,8 +18,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     authorize_booking
-    if @booking.create
-      redirect_to booking_path(@booking)
+    @booking.user = current_user
+    if @booking.save
+      redirect_to supply_booking_path(@booking)
     else
       render :new
     end
@@ -28,6 +30,10 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def set_supply
+    @supply = Supply.find(params[:supply_id])
   end
 
   def booking_params
