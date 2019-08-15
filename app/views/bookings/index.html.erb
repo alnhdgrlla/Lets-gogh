@@ -1,0 +1,9 @@
+ <%= link_to "New Booking", new_supply_booking_path(@supply) %> 
+  
+  <% @bookings.each do |b| %>
+    <div class="grid-item">
+      <p><%= b.start_date %> </p>
+      <p><%= b.end_date %> </p>
+      <p><%= b.supply.title %> </p>
+    </div>
+  <% end %>
