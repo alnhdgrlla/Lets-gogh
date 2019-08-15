@@ -5,9 +5,10 @@
         <h1> <%= @supply.title %></h1>
       </h2>
       <%= simple_form_for [@supply, @booking] do |f| %>
+
         <%= f.input :start_date, as: :string, input_html: {class: "datepicker"} %>
         <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
-        <%= f.button :submit, class: 'btn btn-light' %>
+        <%= f.button :submit, "Borrow it", class: 'btn btn-light' %>
       <% end %>
     </div>
   </div>
