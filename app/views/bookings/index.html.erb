@@ -6,7 +6,7 @@
         <div class="card-show-info">
           <p>
             <div class="Supply">
-              <p><%= (b.end_date - b.start_date).to_i %> days until it's returned</p>
+              <p><%= (b.end_date - b.start_date).to_i %> days until you rent your supplies</p>
               <h4><%= link_to b.supply.title, b.supply %></h4>
               <%= image_tag "gogh.png" %>
             </div>
