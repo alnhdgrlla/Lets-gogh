@@ -3,8 +3,8 @@
     <div class="card-show-info">
       <p>
         <div class="Supply">
+          <%= image_tag "gogh.png" %>
           <h1><%= @supply.title %></h1>
-
           <%= @supply.price %> <br>
           <%= @supply.category %> <br>
           <%= @supply.description %>
@@ -29,7 +29,6 @@
         </div>
       </p>
     </div>
-
   </div>
   <div class="return">
     <%= link_to "back to supplies", root_path %>
