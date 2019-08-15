@@ -19,10 +19,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     authorize_booking
     @booking.user = current_user
+    @booking.supply = @supply
     if @booking.save
-      redirect_to supply_booking_path(@booking)
+      redirect_to bookings_path
     else
-      render :new
+      puts @booking.errors.messages
+      render "supplies/show"
     end
   end
 
