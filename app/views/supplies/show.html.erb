@@ -1,12 +1,9 @@
 <div class="supply-container">
   <div id="card-show">
-    <div class="card-how-info">
-      <div class="name">
-        <h1><%= @supply.title %></h1>
-      </div>
+    <div class="card-show-info">
       <p>
         <div class="Supply">
-          <%= @supply.title  %> <br>
+          <h1><%= @supply.title %></h1>
           <%= @supply.price %> <br>
           <%= @supply.category %> <br>
           <%= @supply.description %>
@@ -15,20 +12,22 @@
     </div>
   </div>
   <div id="reserve-sticky">
-    <p>
-      <div class="sticky">
-        <h3> <%= @supply.price %> </h3>
-      </div>
-      <div class="row no-gutters">
-        <div class="calendar col-lg">
-          <%= simple_form_for @supply do |f| %>
-            <%= f.input :title %>
-            <%= f.input :description %>
-            <%= f.button :submit, :class => "btn btn-light" %>
-          <% end %>
+    <div class="reserve-content">
+      <p>
+        <div class="sticky">
+          <h3> <%= @supply.price %> </h3>
         </div>
-      </div>
-    </p>
+        <div class="row no-gutters">
+          <div class="calendar col-lg">
+            <%= simple_form_for @supply do |f| %>
+              <%= f.input :title %>
+              <%= f.input :description %>
+              <%= f.button :submit, 'Rent Supply!', :class => "btn btn-light"%>
+            <% end %>
+          </div>
+        </div>
+      </p>
+    </div>
   </div>
   <div class="return">
     <%= link_to "back to supplies", root_path %>

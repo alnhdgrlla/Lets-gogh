@@ -3,7 +3,18 @@
    left: 0;
    bottom: 0;
    width: 100%;
-   color:white;
-   background-color: #35838d;
-   text-align: center;
+   color: $white;
+   font-family: $body-font;
+   background-color: $teal;
+   text-align: right;
+   padding-right: 10px;
+   z-index: 1;
+}
+
+.footer-links a {
+  color: $white;
+}
+
+.footer-copyright {
+   font-family: $body-font;
 }

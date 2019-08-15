@@ -1,32 +1,45 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "pencil.svg" %>
-  <% end %>
-  <h1>Let's Gogh</h1>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <form action="#">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit">Search</button>
-      </form>
-      <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Messages", "#", class: "dropdown-item" %>
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+  <div class="left-navbar">
+    <div class="pencil">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "pencil.svg" %>
       <% end %>
-    </ul>
+    </div>
+    <div class="title">
+      <h1>Let's Gogh</h1>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+      </span>
+    </button>
+  </div>
+  <div class="search-id">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <div class="search-supply">
+          <form action="#">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit">Search</button>
+          </form>
+        </div>
+        <div class="avatar-login">
+          <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/brykka", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "Messages", "#", class: "dropdown-item" %>
+                <%= link_to "Action", "#", class: "dropdown-item" %>
+                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </div>
+      </ul>
+    </div>
   </div>
 </div>

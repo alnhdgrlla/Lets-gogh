@@ -1,8 +1,9 @@
 .navbar-lewagon {
-  justify-content: space-between;
+  display: flex;
   background: $teal;
   font-family: $body-font;
   color: $white;
+  justify-content: space-between;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -24,4 +25,16 @@
 
 .navbar p {
   margin: 0;
+}
+
+.search-supply {
+  padding: 10px;
+}
+
+.left-navbar {
+  display: flex;
+}
+
+.avatar-login {
+padding-top: 5px;
 }
