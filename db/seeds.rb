@@ -41,7 +41,8 @@ Supply.create!(
   price: 10000.99,
   category: "drawing tablet",
   description: "uwa sugoi desu nee",
-  user: test_supplier
+  user: test_supplier,
+  remote_photo_url: 'https://picsum.photos/id/102/70/70'
 )
 
 puts "Creating test booking..."
@@ -78,7 +79,8 @@ User.all.each do |user|
       price: Faker::Commerce.price(range: 0..500.0),
       category: Supply::CATEGORY.sample,
       description: Faker::Hipster.paragraphs(number: 2).join(" "),
-      user: user
+      user: user,
+      remote_photo_url: 'https://picsum.photos/id/102/70/70'
     )
   end
 end
