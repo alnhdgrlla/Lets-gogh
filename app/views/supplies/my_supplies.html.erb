@@ -1,15 +1,15 @@
 <h1>My Supplies</h1>
 <h2>All My Supplies</h2>
-  <% @supplies.each do |supply| %>
-    <div id="card-show">
-      <div class="card-show-info">
-        <p>
-          <div class="Supply">
-            <p><%= supply.title %></p>
-            <%= image_tag "gogh.png" %>
-          </div>
-        </p>
-      </div>
+<% @supplies.each do |supply| %>
+  <div id="card-show">
+    <div class="card-show-info">
+      <p>
+        <div class="Supply">
+          <p><%= supply.title %></p>
+          <%= image_tag "gogh.png" %>
+        </div>
+      </p>
     </div>
-  <% end %>
+  </div>
+<% end %>
 <h2>Others</h2>
