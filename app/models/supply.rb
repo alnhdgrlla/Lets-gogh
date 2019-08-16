@@ -8,4 +8,11 @@ class Supply < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  include PgSearch::Model
+  pg_search_scope :search_by_category_title_desc,
+    against: [:category, :title, :description],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
