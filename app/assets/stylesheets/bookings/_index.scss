@@ -1,37 +1,7 @@
-// Specific CSS for your home-page
-.banner {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-}
-
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.grid-container{
-  display: grid;
-  justify-content: space-evenly;
-  grid-template-columns: auto auto;
-
-  padding: 10px;
-}
-
 .grid-item{
   overflow: hidden;
-  height: 220px;
-  width: 475px;
+  height: 175px;
+  width: 325px;
   background: white;
   display: flex;
   align-items: center;
@@ -68,7 +38,7 @@ text-decoration: none;
 
 .grid-item img {
   height: 100%;
-  width: 160px;
+  width: 120px;
   object-fit: cover;
 }
 
@@ -92,18 +62,10 @@ body {
   height: 30px;
   width: 30px;
   position: absolute;
-
-  right: 20px;
-  top: 180px;
+      right: 15px;
+    top: 135px;
   opacity: 0.8;
   transform: rotate(15deg);
   font-weight: lighter;
 
   }
-
-.tag-styling a {
-  background-color:#b0b6bc;
-  border-radius:7px;
-  padding-left:3px;
-  padding-right:3px;
-}

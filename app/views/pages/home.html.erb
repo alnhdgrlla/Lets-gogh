@@ -5,6 +5,11 @@
   </div>
 </div>
 <h2>Hot Supplies</h2>
+<%= simple_form_for :cat_search, url: root_path, method: "GET" do |f| %>
+  <%= f.input :categories, label: "Category",  collection: Supply::CATEGORY, as: :check_boxes %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+  <%= link_to "Reset", root_path  %>
+<% end %>
 <div class="grid-container">
   <% @supplies.each do |s| %>
     <div class="grid-item">
