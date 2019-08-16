@@ -26,7 +26,7 @@
           </ul>
         </div>
         <h1><%= @supply.title %></h1>
-        <p>$ <%= @supply.price %> </p>
+        <p><%= @supply.price %>円/day</p>
         <%= @supply.category %> <br>
         <%= @supply.user.username %> <br>
         <%= @supply.description %>
@@ -37,7 +37,7 @@
     <div class="reserve-content">
       <p>
         <div class="sticky">
-          <h3>$<%= @supply.price %> </h3>
+          <h3><%= @supply.price %>円/day</h3>
         </div>
         <div class="row no-gutters">
           <%= render "bookings/new", supply: @supply, user: current_user %>
