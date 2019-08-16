@@ -21,7 +21,7 @@
         <p id="supply-pricing"><%= s.price %>円/day</p>
         <p><%= s.category %> </p>
         <p><%= s.user.username %> </p>
-        <p>
+        <p class="tag-styling">
           <% s.tag_list.each do |tag| %>
            <%= link_to tag, root_path(tag: tag) %>
           <% end %>

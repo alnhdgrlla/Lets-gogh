@@ -23,15 +23,15 @@
 .grid-container{
   display: grid;
   justify-content: space-evenly;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
 
   padding: 10px;
 }
 
 .grid-item{
   overflow: hidden;
-  height: 175px;
-  width: 325px;
+  height: 220px;
+  width: 475px;
   background: white;
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@ text-decoration: none;
 
 .grid-item img {
   height: 100%;
-  width: 120px;
+  width: 160px;
   object-fit: cover;
 }
 
@@ -92,10 +92,18 @@ body {
   height: 30px;
   width: 30px;
   position: absolute;
-      right: 15px;
-    top: 135px;
+
+  right: 20px;
+  top: 180px;
   opacity: 0.8;
   transform: rotate(15deg);
   font-weight: lighter;
 
   }
+
+.tag-styling a {
+  background-color:#b0b6bc;
+  border-radius:7px;
+  padding-left:3px;
+  padding-right:3px;
+}
