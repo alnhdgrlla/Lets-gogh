@@ -15,4 +15,6 @@ class Supply < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+    
+  acts_as_taggable_on :tags
 end

@@ -25,6 +25,7 @@ gem 'carrierwave', '~> 1.2'
 
 gem 'geocoder'
 gem 'pg_search'
+gem 'acts-as-taggable-on', '~> 6.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
