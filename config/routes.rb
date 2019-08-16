@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :supplies do
     resources :bookings, only: [:show, :new, :create]
   end
+  get 'my_supplies', to: 'supplies#my_supplies', as: :my_supplies
 end

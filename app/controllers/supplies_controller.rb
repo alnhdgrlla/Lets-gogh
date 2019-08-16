@@ -1,6 +1,7 @@
 class SuppliesController < ApplicationController
   before_action :set_supply, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_after_action :verify_authorized, only: :my_supplies
 
   def index
     if params[:search][:query].present?
@@ -60,6 +61,10 @@ class SuppliesController < ApplicationController
     authorize_supply
     @supply.destroy
     redirect_to root_path
+  end
+
+  def my_supplies
+    @supplies = current_user.supplies
   end
 
   private
