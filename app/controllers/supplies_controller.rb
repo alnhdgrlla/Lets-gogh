@@ -66,6 +66,8 @@ class SuppliesController < ApplicationController
 
   def my_supplies
     @supplies = current_user.supplies
+    @booked_supplies = @supplies.select { |supply| supply.booked? }
+    @other_supplies = @supplies.select { |supply| !supply.booked? }
   end
 
   def tagged

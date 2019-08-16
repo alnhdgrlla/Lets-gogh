@@ -16,11 +16,25 @@ class Supply < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  pg_search_scope :search_by_category, 
-    against: [:category], 
+  pg_search_scope :search_by_category,
+    against: [:category],
     using: {
       tsearch: {any_word: true}
     }
-    
+
   acts_as_taggable_on :tags
+
+  def current_bookings_for_supply
+    current_bookings_array = []
+    bookings.each do |booking|
+      current_bookings_array << booking if booking.start_date < Date.today && Date.today < booking.end_date
+    end
+  end
+
+  def booked?
+    bookings.each do |booking|
+      return true if booking.start_date <= Date.today && Date.today <= booking.end_date
+    end
+    false
+  end
 end
