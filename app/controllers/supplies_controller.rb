@@ -11,7 +11,19 @@ class SuppliesController < ApplicationController
   end
 
   def show
+    @supply = Supply.find(params[:id])
+    @supply.geocode
     authorize_supply
+    @markers = []
+
+    marker =
+          {
+            lat: @supply.latitude,
+            lng: @supply.longitude
+          }
+
+    @markers << marker
+
     @booking = Booking.new
   end
 
@@ -57,7 +69,7 @@ class SuppliesController < ApplicationController
   end
 
   def supply_params
-    params.require(:supply).permit(:title, :price, :category, :description, :user_id, :photo)
+    params.require(:supply).permit(:title, :price, :category, :description, :user_id, :photo, tag_list: [])
   end
 
   def authorize_supply
