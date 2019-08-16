@@ -1,62 +1,75 @@
 <div class="supply-container">
   <div id="card-show">
     <div class="card-show-info">
-      <div class="Supply">
-        <%= cl_image_tag @supply.photo %>
-        <div class="fixed-info">
-          <ul id="show-options">
-            <li>
-              <div>
-                <% if policy(@supply).edit? %>
-                  <%= link_to edit_supply_path(@supply) do %>
-                    <i class="far fa-edit"></i>
-                  <% end %>
+      <div class="fixed-info">
+        <ul id="show-options">
+          <li>
+            <div>
+              <% if policy(@supply).edit? %>
+                <%= link_to edit_supply_path(@supply) do %>
+                  <i class="far fa-edit"></i>
                 <% end %>
-              </div>
-            </li>
-            <li>
-              <div>
-                <% if policy(@supply).destroy? %>
-                  <%= link_to supply_path(@supply), method: :delete, data: { confirm: "Are you sure?" } do %>
-                    <i class="fa fa-trash-alt"></i>
-                  <% end %>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <div>
+              <% if policy(@supply).destroy? %>
+                <%= link_to supply_path(@supply), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class="fa fa-trash-alt"></i>
                 <% end %>
-              </div>
-            </li>
-          </ul>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="supply-info">
+        <div class="supply-img">
+          <%= cl_image_tag @supply.photo %>
         </div>
         <h1><%= @supply.title %></h1>
-        <p><%= @supply.price %>円/day</p>
-        <%= @supply.category %> <br>
-        <%= @supply.user.username %> <br>
+        <p>Category:
+          <%= @supply.category %> </p>
+        <p id="supply-pricing"><%= @supply.price %>円/day</p>
+        <br>
         <%= @supply.description %>
+        <div id="user-avatar-show">
+          <%= cl_image_tag @supply.photo %>
+        </div>
       </div>
     </div>
   </div>
   <div id="reserve-sticky">
     <div class="reserve-content">
-        <% if policy(@supply).edit? %>
-          <div class="card-show">
-            <% @supply.bookings.each do |b| %>
-              <% if b.start_date == Date.today %>
-                <h4>Remember to deliver to <%= b.user.username %> at LOCATION today!</h4>
-              <% else %>
-                <h4><%= (b.start_date - Date.today).to_i %> days before you need to deliver!</h4>
-                <p>Deliver to <%= b.user.username %> at LOCATION on <%= b.start_date %></p>
-              <% end %>
-              <p>Don't forget to collect your <%= @supply.title %> from <%= b.user.username %> on <%= b.end_date %>!</p>
+      <% if policy(@supply).edit? %>
+        <div class="card-show">
+          <% @supply.bookings.each do |b| %>
+            <% if b.start_date == Date.today %>
+              <h4>Remember to deliver to <%= b.user.username %> at LOCATION today!</h4>
+            <% else %>
+              <h4><%= (b.start_date - Date.today).to_i %> days before you need to deliver!</h4>
+              <p>Deliver to <%= b.user.username %> at LOCATION on <%= b.start_date %></p>
             <% end %>
-          </div>
-        <% else %>
+            <p>Don't forget to collect your <%= @supply.title %> from <%= b.user.username %> on <%= b.end_date %>!</p>
+          <% end %>
+        </div>
+      <% else %>
         <div class="sticky">
           <h3><%= @supply.price %>円/day</h3>
         </div>
         <div class="row no-gutters">
           <%= render "bookings/new", supply: @supply, user: current_user %>
         <% end %>
-        </div>
+      </div>
     </div>
   </div>
 </div>
 </div>
 </div>
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>

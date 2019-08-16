@@ -11,28 +11,82 @@
 #card-show {
   grid-column: 1 / 2;
   margin: 10px;
-  padding: 15px;
+  padding: 0px;
   width: 100%;
   height: 100vh;
+  padding-right: 20px;
 }
 
 #card-show img {
-  width: 250px;
-  height: 100%;
-  padding: 30px;
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  padding: 15px;
+
+}
+
+.supply-img {
+
 }
 
 .card-show-info {
-  overflow: hidden;
-  height: 500px;
-  margin: 30px;
+  overflow-y: scroll;
+  height: 745px;
+  margin: 3px;
   padding: 30px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  // align-items: center;
   position: relative;
 }
+
+#user-avatar-show img {
+
+  border-radius: 50%;
+  border: 1px solid $teal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  width: 65px;
+  position: absolute;
+  right: 50px;
+  top: 468px;
+  opacity: 0.8;
+  font-weight: lighter;
+
+  }
+
+.card-show-info h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-show-info p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+#supply-pricing {
+  color: $teal;
+}
+
+.card-show .card-show-info {
+  padding: 16px;
+  display: flex;
+  // justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+
+
+
+
 
 .supply {
   display: flex;
@@ -64,7 +118,7 @@
   grid-column: 2 / 3;
   background-color: $white;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 15px;
   position: sticky;

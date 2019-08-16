@@ -14,6 +14,39 @@
         </div>
       </div>
     <% end %>
+
+    <h1>Supplies you rented</h1>
+    <% @bookings.each do |b| %>
+      <%if  b.end_date < Date.today %>
+        <div id="card-show">
+          <div class="card-show-info">
+            <p>
+              <div class="Supply">
+                <h4><%= link_to b.supply.title, b.supply %></h4>
+                <%= image_tag "gogh.png" %>
+              </div>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    <%end %>
+
+    <h1>Supplies you rented out</h1>
+    <% current_user.supplies.each do |s| %>
+        <div id="card-show">
+          <div class="card-show-info">
+              <div class="Supply">
+                <h4><%= link_to s.title %></h4>
+                <%= image_tag "gogh.png" %>
+                <% s.bookings.each do |b| %>
+                  <p>
+                 <%= b.start_date %> - <%= b.end_date %>
+                </p>
+              <% end %>
+              </div>
+          </div>
+        </div>
+    <%end %>
   </div>
   <%= link_to "Back Home", root_path %>
 </div>
