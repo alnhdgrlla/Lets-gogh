@@ -30,7 +30,7 @@
                 <%= link_to "Messages", "#", class: "dropdown-item" %>
                 <%= link_to "My Bookings", bookings_path, class: "dropdown-item" %>
                 <% if user_signed_in? %>
-                  <%= link_to "New Supply", new_supply_path, class: "dropdown-item" %>
+                  <%= link_to "Add New Art Supply", new_supply_path, class: "dropdown-item" %>
                 <% end %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
