@@ -3,7 +3,11 @@ class SuppliesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @supplies = policy_scope(Supply)
+    if params[:search][:query].present?
+      @supplies = policy_scope(Supply).search_by_category_title_desc(params[:search][:query])
+    else
+      @supplies = policy_scope(Supply)
+    end
   end
 
   def show
