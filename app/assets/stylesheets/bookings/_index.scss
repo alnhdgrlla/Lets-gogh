@@ -1,0 +1,71 @@
+.grid-item{
+  overflow: hidden;
+  height: 175px;
+  width: 325px;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 15px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.grid-item-info {
+  padding-left: 15px;
+}
+
+#supply-pricing {
+  color: $teal;
+  font-size:larger;
+}
+
+.grid-item p {
+  font-size: 16px;
+  line-height: 1.2;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.grid-item a {
+color: $black;
+}
+
+.grid-item a:hover {
+text-decoration: none;
+}
+
+.grid-item img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+h2 {
+  padding: 20px;
+  padding-left: 50px;
+
+}
+
+body {
+  margin-bottom: 80px;
+ }
+
+.user-avatar img {
+  color: $teal;
+  border-radius: 50%;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+      right: 15px;
+    top: 135px;
+  opacity: 0.8;
+  transform: rotate(15deg);
+  font-weight: lighter;
+
+  }
