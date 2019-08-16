@@ -1,13 +1,9 @@
 class SuppliesController < ApplicationController
   before_action :set_supply, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :tagged]
 
   def index
-    if params[:search][:query].present?
-      @supplies = policy_scope(Supply).search_by_category_title_desc(params[:search][:query])
-    else
-      @supplies = policy_scope(Supply)
-    end
+    @supplies = policy_scope(Supply)
   end
 
   def show
@@ -36,6 +32,7 @@ class SuppliesController < ApplicationController
     @supply = Supply.new(supply_params)
     authorize_supply
     @supply.user = current_user
+    # raise
     if @supply.save
       redirect_to supply_path(@supply)
     else
@@ -62,6 +59,14 @@ class SuppliesController < ApplicationController
     redirect_to root_path
   end
 
+  def tagged
+    if params[:tag].present?
+      @supplies = Supply.tagged_with(params[:tag])
+    else
+      @supplies = policy_scope(Supply)
+    end
+  end
+
   private
 
   def set_supply
@@ -69,7 +74,7 @@ class SuppliesController < ApplicationController
   end
 
   def supply_params
-    params.require(:supply).permit(:title, :price, :category, :description, :user_id, :photo, tag_list: [])
+    params.require(:supply).permit(:title, :price, :category, :description, :user_id, :photo, :tag_list)
   end
 
   def authorize_supply
