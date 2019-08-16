@@ -18,15 +18,20 @@
 }
 
 #card-show img {
-  width: 100%;
   height: 440px;
   object-fit: cover;
   padding: 15px;
 
 }
 
-.supply-img {
+.supply-info {
+  width:100%;
+}
 
+.supply-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .card-show-info {
@@ -50,12 +55,26 @@
   height: 65px;
   width: 65px;
   position: absolute;
-  right: 50px;
+  right: 40px;
   top: 468px;
   opacity: 0.8;
   font-weight: lighter;
+  justify-content: center;
 
   }
+
+small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  width: 65px;
+  position: absolute;
+  right: 40px;
+  top: 510px;
+  opacity: 0.8;
+  font-weight: lighter;
+}
 
 .card-show-info h1 {
   font-size: 20px;
@@ -100,7 +119,7 @@
   height: 30px;
   width: 30px;
   position: absolute;
-  right: 50px;
+  right: 65px;
   top: 50px;
   opacity: 0.8;
   font-weight: lighter;
