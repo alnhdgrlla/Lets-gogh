@@ -92,10 +92,17 @@ body {
   height: 30px;
   width: 30px;
   position: absolute;
-      right: 15px;
-    top: 135px;
+  right: 15px;
+  top: 135px;
   opacity: 0.8;
   transform: rotate(15deg);
   font-weight: lighter;
 
   }
+
+.tag-styling a {
+  background-color:#b0b6bc;
+  border-radius:7px;
+  padding-left:3px;
+  padding-right:3px;
+}
