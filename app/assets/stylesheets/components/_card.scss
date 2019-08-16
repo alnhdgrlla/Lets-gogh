@@ -8,8 +8,8 @@
 }
 
 .card-product img {
-  height: 100%;
-  width: 120px;
+  height: 400px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -25,6 +25,10 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+
+#supply-pricing {
+  color: $teal;
 }
 
 .card-product .card-product-infos {

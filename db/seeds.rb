@@ -42,7 +42,7 @@ Supply.create!(
   category: "drawing tablet",
   description: "Impact Hub, Meguro",
   user: test_supplier,
-  remote_photo_url: 'https://picsum.photos/70'
+  remote_photo_url: 'https://picsum.photos/400'
 )
 
 Supply.create!(

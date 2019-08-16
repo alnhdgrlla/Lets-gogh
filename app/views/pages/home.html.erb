@@ -13,9 +13,11 @@
       </div>
       <div class="grid-item-info">
         <h4><%= link_to s.title, supply_path(s) %> </h4>
-        <p><%= s.price %>円/day</p>
+        <p id="supply-pricing"><%= s.price %>円/day</p>
         <p><%= s.category %> </p>
-        <p><%= s.user.username %> </p>
+        <div class="user-avatar">
+          <%= cl_image_tag s.photo %>
+        </div>
       </div>
     </div>
   <% end %>
