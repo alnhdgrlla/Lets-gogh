@@ -23,7 +23,7 @@
           </form> %>
           <%= simple_form_for :search, url: supplies_path, method: "GET", html: { class: 'form-inline' } do |f| %>
             <%= f.input :query, input_html: { value: ""}, placeholder: "Search...", name: "search", label: false %>
-            <%= f.submit "Search", class: "btn btn-primary" %>
+            <%= f.submit "Search", class: "btn btn-light" %>
           <% end %>
         </div>
         <div class="avatar-login">

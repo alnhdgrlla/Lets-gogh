@@ -1,6 +1,6 @@
 class SuppliesController < ApplicationController
   before_action :set_supply, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :tagged]
   skip_after_action :verify_authorized, only: :my_supplies
 
   def index
@@ -37,6 +37,7 @@ class SuppliesController < ApplicationController
     @supply = Supply.new(supply_params)
     authorize_supply
     @supply.user = current_user
+    # raise
     if @supply.save
       redirect_to supply_path(@supply)
     else
@@ -66,6 +67,14 @@ class SuppliesController < ApplicationController
   def my_supplies
     @supplies = current_user.supplies
   end
+    
+  def tagged
+    if params[:tag].present?
+      @supplies = Supply.tagged_with(params[:tag])
+    else
+      @supplies = policy_scope(Supply)
+    end
+  end
 
   private
 
@@ -74,7 +83,7 @@ class SuppliesController < ApplicationController
   end
 
   def supply_params
-    params.require(:supply).permit(:title, :price, :category, :description, :user_id, :photo)
+    params.require(:supply).permit(:title, :price, :category, :description, :user_id, :photo, :tag_list)
   end
 
   def authorize_supply

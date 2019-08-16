@@ -3,10 +3,12 @@
     <div class="col-md-8">
       <h1>Add a supply to rent out</h1>
       <%= simple_form_for @supply do |f| %>
-        <%= f.input :title, hint: "Quantity, Usage, Material, Warning" %>
-        <%= f.input :category, hint:"Please select from the list", collection: Supply::CATEGORY %>
-        <%= f.input :price, hint: "Price per day" %>
-        <%= f.input :description, hint: "Quantity, Usage, Material, Warning, etc."%>
+        <%= f.input :title %>
+        <%= f.input :category, collection: Supply::CATEGORY %>
+        <%= f.input :price %>
+        <%= f.input :description %>
+        <%= f.input :location %>
+        <%= f.input :tag_list, label: "Add tags" %>
         <%= f.button :submit, class: 'btn btn-light' %>
       <% end %>
       <div class=mt-3> <%= link_to "Back Home", supply_path(@supply), class: 'btn btn-light' %> </div>
