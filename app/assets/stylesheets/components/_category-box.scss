@@ -1,0 +1,45 @@
+a {
+color: $black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.form-inline .form-group {
+  display: contents;
+}
+
+
+.form-group {
+  width: 800px;
+  display: contents;
+}
+
+.form-check {
+  color: pink;
+  width: 100px;
+  padding-left: 4px;
+}
+
+.input.categories {
+  display: inline;
+}
+
+.category-box {
+  border: 1px solid $black;
+  border-radius: 10px;
+  background-color: $light-gray;
+  margin: 40px;
+  padding: 15px;
+
+}
+
+
+label.collection_check_boxes {
+  display: flex;
+  float: none;
+  vertical-align: -2px;
+  margin-left: 1px;
+  padding: 2px;
+}

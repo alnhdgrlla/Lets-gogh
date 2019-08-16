@@ -5,11 +5,13 @@
   </div>
 </div>
 <h2>Hot Supplies</h2>
-<%= simple_form_for :cat_search, url: root_path, method: "GET" do |f| %>
-  <%= f.input :categories, label: "Category",  collection: Supply::CATEGORY, as: :check_boxes %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
-  <%= link_to "Reset", root_path  %>
-<% end %>
+<div class="category-box">
+  <%= simple_form_for :cat_search, url: root_path, :html => {:class => 'form-inline' } , method: "GET" do |f| %>
+    <%= f.input :categories, label: "Category",  collection: Supply::CATEGORY, as: :check_boxes %>
+    <%= f.submit "Search", class: "btn btn-light" %> <br>
+    <%= link_to "Reset", root_path  %>
+  <% end %>
+</div>
 <div class="grid-container">
   <% @supplies.each do |s| %>
     <div class="grid-item">
@@ -23,7 +25,7 @@
         <p><%= s.user.username %> </p>
         <p class="tag-styling">
           <% s.tag_list.each do |tag| %>
-           <%= link_to tag, root_path(tag: tag) %>
+            <%= link_to tag, root_path(tag: tag) %>
           <% end %>
         </p>
         <div class="user-avatar">
