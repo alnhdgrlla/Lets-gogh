@@ -67,7 +67,7 @@ class SuppliesController < ApplicationController
   def my_supplies
     @supplies = current_user.supplies
   end
-    
+
   def tagged
     if params[:tag].present?
       @supplies = Supply.tagged_with(params[:tag])
@@ -83,7 +83,7 @@ class SuppliesController < ApplicationController
   end
 
   def supply_params
-    params.require(:supply).permit(:title, :price, :category, :description, :user_id, :photo, :tag_list)
+    params.require(:supply).permit(:title, :price, :category, :description, :user_id, :photo, :tag_list, :location)
   end
 
   def authorize_supply
