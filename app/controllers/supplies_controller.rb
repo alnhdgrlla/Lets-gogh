@@ -11,7 +11,19 @@ class SuppliesController < ApplicationController
   end
 
   def show
+    @supply = Supply.find(params[:id])
+    @supply.geocode
     authorize_supply
+    @markers = []
+
+    marker =
+          {
+            lat: @supply.latitude,
+            lng: @supply.longitude
+          }
+
+    @markers << marker
+
     @booking = Booking.new
   end
 
