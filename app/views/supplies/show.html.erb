@@ -49,8 +49,9 @@
               <h4>Remember to deliver to <%= b.user.username %> at LOCATION today!</h4>
             <% else %>
               <h4><%= (b.start_date - Date.today).to_i %> days before you need to deliver!</h4>
+              <br>
               <p>Deliver to <%= b.user.username %> at LOCATION on <%= b.start_date %></p>
-            <% end %>
+            <% end %> <br>
             <p>Don't forget to collect your <%= @supply.title %> from <%= b.user.username %> on <%= b.end_date %>!</p>
           <% end %>
         </div>
@@ -67,8 +68,7 @@
 </div>
 </div>
 </div>
-<div
-  id="map"
+<div id="map"
   style="width: 100%;
   height: 600px;"
   data-markers="<%= @markers.to_json %>"
