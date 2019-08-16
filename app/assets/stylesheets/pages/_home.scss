@@ -92,6 +92,7 @@ body {
   height: 30px;
   width: 30px;
   position: absolute;
+
   right: 20px;
   top: 180px;
   opacity: 0.8;
@@ -99,3 +100,10 @@ body {
   font-weight: lighter;
 
   }
+
+.tag-styling a {
+  background-color:#b0b6bc;
+  border-radius:7px;
+  padding-left:3px;
+  padding-right:3px;
+}

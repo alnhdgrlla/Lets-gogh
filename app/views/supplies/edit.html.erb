@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1>Add a supply to rent out</h1>
+      <h1>Edit your supply</h1>
       <%= simple_form_for @supply do |f| %>
+
         <%= f.input :title %>
         <%= f.input :category, collection: Supply::CATEGORY %>
         <%= f.input :price %>
