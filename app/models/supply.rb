@@ -15,6 +15,12 @@ class Supply < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  pg_search_scope :search_by_category, 
+    against: [:category], 
+    using: {
+      tsearch: {any_word: true}
+    }
     
   acts_as_taggable_on :tags
 end
