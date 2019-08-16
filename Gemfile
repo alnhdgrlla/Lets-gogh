@@ -21,8 +21,9 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'pundit'
 
 gem 'cloudinary', '~> 1.9.1'
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'carrierwave', '~> 1.2'
+
+gem 'pg_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

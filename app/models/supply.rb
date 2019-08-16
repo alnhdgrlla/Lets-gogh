@@ -6,4 +6,11 @@ class Supply < ApplicationRecord
   validates :price, presence: true
   validates :category, presence: true
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch::Model
+  pg_search_scope :search_by_category_title_desc,
+    against: [:category, :title, :description],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

@@ -17,10 +17,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <div class="search-supply">
-          <form action="#">
+          <%# <form action="#">
             <input type="text" placeholder="Search..." name="search">
             <button type="submit">Search</button>
-          </form>
+          </form> %>
+          <%= simple_form_for :search, url: supplies_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+            <%= f.input :query, input_html: { value: ""}, placeholder: "Search...", name: "search", label: false %>
+            <%= f.submit "Search", class: "btn btn-primary" %>
+          <% end %>
         </div>
         <div class="avatar-login">
           <% if user_signed_in? %>
