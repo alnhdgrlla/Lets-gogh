@@ -71,7 +71,7 @@
     </p>
     <div id="reviews">
       <% if @supply.reviews.blank? %>
-        Be the first to leave a review for <%= @supply.name %>
+        Be the first to leave a review for <%= @supply.title %>
       <% else %>
         <% @supply.reviews.each do |review| %>
           <%= render 'reviews/show', review: review %>
