@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_supply, only: [:show, :new, :create]
+  before_action :set_supply, only: [:new, :create]
+  before_action :set_booking, only: [:show, :update]
 
   def index
     @bookings = policy_scope(Booking)
@@ -8,6 +9,7 @@ class BookingsController < ApplicationController
 
   def show
     authorize_booking
+    @supply = @booking.supply
   end
 
   def new
@@ -25,6 +27,16 @@ class BookingsController < ApplicationController
     else
       puts @booking.errors.messages
       render "supplies/show"
+    end
+  end
+
+  def update
+    authorize_booking
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking)
+    else
+      @supply = @booking.supply
+      render :show
     end
   end
 

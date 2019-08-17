@@ -45,7 +45,10 @@ Supply.create!(
   location: "Mos Burger, Meguro",
   user: test_supplier,
   remote_photo_url: 'https://wcm-cdn.azureedge.net/-/media/wacomdotcom/images/products/pen-tablets/intuos-art/gallery/cth490k_galleryimage_1_600x600_emea.jpg?h=600&la=en&w=600&hash=41DB178B0F18C5B1741D8B02755E2098'
-)
+).tap do |supply|
+  supply.tag_list.add "wacom", "student grade"
+  supply.save!
+end
 
 Supply.create!(
   title: "STANLEY Soft Grip Polyester Brush",
@@ -55,7 +58,10 @@ Supply.create!(
   location: "Mos Burger, Meguro",
   user: test_supplier,
   remote_photo_url: 'https://cdn.shopify.com/s/files/1/1114/2810/products/waldorf-watercolor-paintbrush_1_1024x1024.png?v=1453489603'
-)
+).tap do |supply|
+  supply.tag_list.add "water", "stanley"
+  supply.save!
+end
 
 Supply.create!(
   title: "Artist Brand Acrylic Paints",
@@ -65,7 +71,10 @@ Supply.create!(
   location: "Mos Burger, Meguro",
   user: test_supplier,
   remote_photo_url: 'https://images.pexels.com/photos/1327716/pexels-photo-1327716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-)
+).tap do |supply|
+  supply.tag_list.add "water", "set", "primary colors", "non-toxic"
+  supply.save!
+end
 
 puts "Creating test booking..."
 
@@ -141,6 +150,21 @@ review_contents = [
   "Wow a 20 character limit on writing a review? What a shitty website, I hate it"
 ]
 
+tags = [
+  "oil",
+  "water",
+  "latex",
+  "set",
+  "primary colors",
+  "limited edition",
+  "wacom",
+  "copic",
+  "atelier",
+  "matisse",
+  "student grade",
+  "non-toxic"
+]
+
 User.all.each do |user|
   rand(0..5).times do
     Supply.create!(
@@ -150,8 +174,11 @@ User.all.each do |user|
       description: Faker::Hipster.paragraphs(number: 2).join(" "),
       location: locations.sample,
       user: user,
-      remote_photo_url: photos.sample
-    )
+      remote_photo_url: photos.sample,
+    ).tap do |supply|
+      supply.tag_list.add tags.sample, tags.sample, tags.sample
+      supply.save
+    end
     Review.create!(
       content: review_contents.sample,
       user: user,
