@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2019_08_17_044416) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "supply_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supply_id"], name: "index_reviews_on_supply_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "supplies", force: :cascade do |t|
     t.string "category"
     t.integer "price"
@@ -83,5 +93,7 @@ ActiveRecord::Schema.define(version: 2019_08_17_044416) do
 
   add_foreign_key "bookings", "supplies"
   add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "supplies"
+  add_foreign_key "reviews", "users"
   add_foreign_key "supplies", "users"
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show, :update]
   resources :supplies do
     resources :bookings, only: [:new, :create]
+    resources :reviews, only: [:create]
   end
   get 'my_supplies', to: 'supplies#my_supplies', as: :my_supplies
 end

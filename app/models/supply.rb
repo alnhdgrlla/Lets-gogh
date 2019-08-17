@@ -1,8 +1,9 @@
 class Supply < ApplicationRecord
   CATEGORY = ['paintbrushes', 'paints', 'drawing tablet', 'digital pen', 'pencils', 'markers', 'pens', 'easel', 'sculpting tools', 'palette', 'lightbox']
   belongs_to :user
-  has_many :bookings
-  validates :title, presence: true
+  has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  validates :title, presence: true, length: { maximum: 140 }
   validates :price, presence: true
   validates :category, presence: true
   mount_uploader :photo, PhotoUploader
