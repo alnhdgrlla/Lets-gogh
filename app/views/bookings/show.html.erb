@@ -1,0 +1,65 @@
+<div class="supply-container">
+  <div id="card-show">
+    <div class="card-show-info">
+      <div class="fixed-info">
+        <ul id="show-options">
+          <li>
+            <div>
+              <% if policy(@supply).edit? %>
+                <%= link_to edit_supply_path(@supply) do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <div>
+              <% if policy(@supply).destroy? %>
+                <%= link_to supply_path(@supply), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class="fa fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="supply-info">
+        <div class="supply-img">
+          <%= cl_image_tag @supply.photo %>
+        </div>
+        <h1><%= @supply.title %></h1>
+        <p>Category:
+          <%= @supply.category %> </p>
+        <p id="supply-pricing"><%= @supply.price %>円/day</p>
+        <br>
+        <%= @supply.description %>
+        <div id="user-avatar-show">
+          <%= cl_image_tag @supply.photo %>
+          <small>username</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="reserve-sticky">
+    <% if @booking.status == "pending" %>
+      <%= simple_form_for @booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: {value: Booking.statuses.keys[1]} %>
+        <%= f.submit "Accept" %>
+      <% end %>
+      <%= simple_form_for @booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: {value: Booking.statuses.keys[2]} %>
+        <%= f.submit "Deny" %>
+      <% end %>
+    <% else %>
+      <p>Status: <%= @booking.status %></p>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
+<div id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>

@@ -31,7 +31,7 @@ class Supply < ApplicationRecord
     end
   end
 
-  def booked?
+  def currently_booked?
     bookings.each do |booking|
       return true if booking.start_date <= Date.today && Date.today <= booking.end_date
     end

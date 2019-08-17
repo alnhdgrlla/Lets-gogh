@@ -1,33 +1,33 @@
 <h1>My Supplies</h1>
 <h2>Booking Requests</h2>
-<p>TBD...</p>
-<h2>Currently Booked Supplies</h2>
-  <% @booked_supplies.each do |supply| %>
+  <% if @pending_bookings.any? %>
+    <% @pending_bookings.each do |booking| %>
+        <div class="grid-item">
+            <div class="grid-item-img">
+              <%= cl_image_tag booking.supply.photo %>
+            </div>
+            <div class="grid-item-info">
+              <h4><%= link_to booking.supply.title, booking_path(booking) %> </h4>
+              <div class="user-avatar">
+                <%= image_tag "gogh.png" %>
+              </div>
+            </div>
+        </div>
+    <% end %>
+  <% else %>
+    <p>No pending requests!</p>
+  <% end %>
+<h2>All My Supplies</h2>
+  <% @supplies.each do |supply| %>
       <div class="grid-item">
           <div class="grid-item-img">
             <%= cl_image_tag supply.photo %>
           </div>
           <div class="grid-item-info">
             <h4><%= link_to supply.title, supply_path(supply) %> </h4>
-            <p>accept | reject | pending</p>
             <div class="user-avatar">
               <%= image_tag "gogh.png" %>
             </div>
           </div>
       </div>
   <% end %>
-<h2>Currently Unbooked Supplies</h2>
-  <% @other_supplies.each do |supply| %>
-    <div class="grid-item">
-        <div class="grid-item-img">
-          <%= cl_image_tag supply.photo %>
-        </div>
-        <div class="grid-item-info">
-          <h4><%= link_to supply.title, supply_path(supply) %> </h4>
-          <p>accept | reject | pending</p>
-          <div class="user-avatar">
-            <%= image_tag "gogh.png" %>
-          </div>
-        </div>
-      </div>
-    <% end %>

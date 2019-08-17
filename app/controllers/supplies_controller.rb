@@ -65,9 +65,9 @@ class SuppliesController < ApplicationController
   end
 
   def my_supplies
+    # I want to pass all my bookings which I haven't accepted yet
+    @pending_bookings = current_user.bookings_as_supplier.where(status: 0)
     @supplies = current_user.supplies
-    @booked_supplies = @supplies.select { |supply| supply.booked? }
-    @other_supplies = @supplies.select { |supply| !supply.booked? }
   end
 
   def tagged
