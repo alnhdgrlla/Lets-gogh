@@ -4,6 +4,7 @@ color: $black;
 
 a:hover {
   text-decoration: none;
+  color: $light-gray;
 }
 
 .form-inline .form-group {
@@ -17,19 +18,20 @@ a:hover {
 }
 
 .form-check {
-  color: pink;
+  color: $teal;
   width: 100px;
-  padding-left: 4px;
+  padding: 6px;
 }
 
 .input.categories {
   display: inline;
+  padding: 5px;
 }
 
 .category-box {
-  border: 1px solid $black;
-  border-radius: 10px;
-  background-color: $light-gray;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+  background-color: white;
   margin: 40px;
   padding: 15px;
 
@@ -39,7 +41,7 @@ a:hover {
 label.collection_check_boxes {
   display: flex;
   float: none;
-  vertical-align: -2px;
-  margin-left: 1px;
-  padding: 2px;
+  vertical-align: 2px;
+  margin-right: 5px;
+  padding: 1px;
 }

@@ -7,7 +7,7 @@
 <h2>Hot Supplies</h2>
 <div class="category-box">
   <%= simple_form_for :cat_search, url: root_path, :html => {:class => 'form-inline' } , method: "GET" do |f| %>
-    <%= f.input :categories, label: "Category",  collection: Supply::CATEGORY, as: :check_boxes %>
+    <%= f.input :categories, label: "Choose a Category",  collection: Supply::CATEGORY, as: :check_boxes %> <br>
     <%= f.submit "Search", class: "btn btn-light" %> <br>
     <%= link_to "Reset", root_path  %>
   <% end %>
