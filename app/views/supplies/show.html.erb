@@ -39,6 +39,24 @@
         </div>
       </div>
     </div>
+    <div class="reviews-box">
+      <h1>Review of this Supply</h1>
+      <p>
+        <% pluralize @supply.reviews.size, "review" %>
+      </p>
+      <div id="reviews">
+        <% if @supply.reviews.blank? %>
+          Be the first to leave a review for <%= @supply.title %>
+        <% else %>
+          <% @supply.reviews.each do |review| %>
+            <%= render 'reviews/show', review: review %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="review">
+        <%= render 'reviews/form', supply: @supply, review: @review %>
+      </div>
+    </div>
   </div>
   <div id="reserve-sticky">
     <div class="reserve-content">
@@ -64,6 +82,7 @@
       </div>
     </div>
   </div>
+
   <div class="reviews-box">
     <h1>Review of this Supply</h1>
     <p>
