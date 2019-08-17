@@ -57,7 +57,6 @@
         </div>
       <% else %>
         <div class="sticky">
-          <h3><%= @supply.price %>円/day</h3>
         </div>
         <div class="row no-gutters">
           <%= render "bookings/new", supply: @supply, user: current_user %>
@@ -65,12 +64,12 @@
       </div>
     </div>
   </div>
+  <div class="reviews-box">
+    <h1>Here are reviews</h1>
+    <div class="review">
+      <p>here it is, the review content</p>
+    </div>
+  </div>
 </div>
 </div>
-</div>
-<div class="map-container">
-  <div id="map"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
 </div>
