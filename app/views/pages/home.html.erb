@@ -21,12 +21,15 @@
         <h4><%= link_to s.title, supply_path(s) %> </h4>
         <p id="supply-pricing"><%= s.price %>円/day</p>
         <p><%= s.category %> </p>
-        <p><%= s.user.username %> </p>
-        <p class="tag-styling">
+
+        <div class="tag-styling" style="display: flex; flex-wrap: wrap;">
           <% s.tag_list.each do |tag| %>
+            <div class="tag">
             <%= link_to tag, root_path(tag: tag) %>
+            </div>
           <% end %>
-        </p>
+        </div>
+
         <div class="user-avatar">
           <%= image_tag("bananadeer.png", :alt=> "bananadeer") %>
         </div>
