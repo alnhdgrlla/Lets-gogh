@@ -171,9 +171,16 @@ small {
 }
 
 .review {
+  padding: 20px;
   overflow-y: scroll;
 }
 
 .review p {
   padding: 15px;
+}
+
+#reviews {
+  padding-left: 50px;
+  color: $teal;
+  border-top: 1px solid $light-gray;
 }

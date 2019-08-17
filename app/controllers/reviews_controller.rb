@@ -10,10 +10,17 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = @user
     @review.supply = @supply
+    authorize @review
     if @review.save
-      redirect_to @supply
+      respond_to do |format|
+        format.html { redirect_to @supply }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
     end
   end
 
@@ -24,7 +31,7 @@ class ReviewsController < ApplicationController
   end
 
   def set_supply
-    @supply = Supply.find(params[:id])
+    @supply = Supply.find(params[:supply_id])
   end
 
   def review_params
