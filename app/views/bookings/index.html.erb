@@ -4,7 +4,7 @@
     <% @bookings.each do |b| %>
       <div class="grid-item">
         <div class="grid-item-img">
-          <%= image_tag "gogh.png" %>
+          <%= cl_image_tag b.supply.photo %>
         </div>
         <div class="grid-item-info">
           <h4><%= link_to b.supply.title, b.supply %> </h4>
@@ -21,7 +21,7 @@
       <%if  b.end_date < Date.today %>
         <div class="grid-item">
           <div class="grid-item-img">
-            <%= image_tag "gogh.png" %>
+            <%= cl_image_tag b.supply.photo %>
           </div>
           <h4><%= link_to b.supply.title, b.supply %> </h4>
           <p><%= (b.end_date - b.start_date).to_i %> days until your rental starts</p>
