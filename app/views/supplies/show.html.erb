@@ -65,9 +65,21 @@
     </div>
   </div>
   <div class="reviews-box">
-    <h1>Here are reviews</h1>
+    <h1>Review of this Supply</h1>
+    <p>
+      <% pluralize @supply.reviews.size, "review" %>
+    </p>
+    <div id="reviews">
+      <% if @supply.reviews.blank? %>
+        Be the first to leave a review for <%= @supply.name %>
+      <% else %>
+        <% @supply.reviews.each do |review| %>
+          <%= render 'reviews/show', review: review %>
+        <% end %>
+      <% end %>
+    </div>
     <div class="review">
-      <p>here it is, the review content</p>
+      <%= render 'reviews/form', supply: @supply, review: @review %>
     </div>
   </div>
 </div>
